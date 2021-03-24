@@ -22,13 +22,13 @@ let soundModelURL = 'https://kabuto-lin.github.io/frog10732618/model.json';
 function preload() {
   // Load the model
   classifier = ml5.soundClassifier(soundModelURL);
-  ThunkableWebviewerExtension.postMessage("ready");
 }
 
 function setup() {
   createCanvas(320, 240);
   // Start classifying
   // The sound model will continuously listen to the microphone
+  ThunkableWebviewerExtension.postMessage("ready");
   classifier.classify(gotResult);
 }
 
