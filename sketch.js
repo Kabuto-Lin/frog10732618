@@ -22,6 +22,7 @@ let soundModelURL = 'https://kabuto-lin.github.io/frog10732618/model.json';
 function preload() {
   // Load the model
   classifier = ml5.soundClassifier(soundModelURL);
+  ThunkableWebviewerExtension.postMessage("ready");
 }
 
 function setup() {
@@ -50,4 +51,5 @@ function gotResult(error, results) {
   // The results are in an array ordered by confidence.
   // console.log(results[0]);
   label = results[0].label;
+  ThunkableWebviewerExtension.postMessage(label);
 }
